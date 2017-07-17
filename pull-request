@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# install https://hub.github.com/
+#
+# use like this
+# pull-request (any hub args)
+# pull-request -l 'merge okay' -o
+
+# get branch name
+branch_name=$(git symbolic-ref -q HEAD)
+branch_name=${branch_name##refs/heads/}
+branch_name=${branch_name:-HEAD}
+
+git push --set-upstream origin "$branch_name"
+hub pull-request $@
