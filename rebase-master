@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# use like this
+# rebase-master
+
+CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) && \
+git checkout master && \
+git pull && \
+git checkout $CURRENT_BRANCH && \
+git rebase master
