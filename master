@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# use like this
+# master
+
+git checkout master && \
+git reset --hard origin/master && \
+git pull

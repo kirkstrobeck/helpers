@@ -6,24 +6,20 @@
 # pull-request (any hub args)
 # pull-request -l 'merge okay' -o
 
-# get branch name
-# https://stackoverflow.com/a/1593487/537998
-branch_name=$(git symbolic-ref -q HEAD)
-branch_name=${branch_name##refs/heads/}
-branch_name=${branch_name:-HEAD}
+# get current branch
+CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) && \
 
-# maintain arg quotes
-# https://stackoverflow.com/a/24179878/537998
+# maintain arg quotes - https://stackoverflow.com/a/24179878/537998
 function requote() {
   local res=""
   for x in "${@}" ; do
-      # try to figure out if quoting was required for the $x:
-      grep -q "[[:space:]]" <<< "$x" && res="${res} '${x}'" || res="${res} ${x}"
+    # try to figure out if quoting was required for the $x:
+    grep -q "[[:space:]]" <<< "$x" && res="${res} '${x}'" || res="${res} ${x}"
   done
   # remove first space and print:
   sed -e 's/^ //' <<< "${res}"
 }
 CMD=$(requote "${@}")
 
-git push --set-upstream origin "$branch_name"
+rebase-and-push
 eval hub pull-request ${CMD}

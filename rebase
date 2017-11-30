@@ -3,8 +3,9 @@
 # use like this
 # rebase
 
+# get current branch
 CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) && \
-git checkout master && \
-git pull && \
+
+master && \
 git checkout $CURRENT_BRANCH && \
 git rebase master
