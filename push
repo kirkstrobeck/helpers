@@ -3,6 +3,4 @@
 # get current branch
 CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
-master &&
-git checkout $CURRENT_BRANCH &&
-git rebase master
+git push --set-upstream origin $CURRENT_BRANCH
