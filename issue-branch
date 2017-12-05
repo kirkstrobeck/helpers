@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# usage
+# issue-branch (number)
+
+# example
+# issue-branch 123
+
+master-and-deps &&
+git checkout -b issue-$1

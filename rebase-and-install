@@ -4,4 +4,4 @@
 CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
 rebase &&
-deps-install
+install-deps

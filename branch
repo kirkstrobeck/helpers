@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# usage
+# branch (string || branch)
+
+# example
+# branch fix-things
+
+git add --all &&
+git stash &&
+if git show-ref refs/heads/$1 --quiet; then
+  git checkout $1
+else
+  master &&
+  git checkout -b $1 &&
+  deps-install
+fi &&
+git stash pop

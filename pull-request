@@ -1,9 +1,12 @@
 #!/bin/bash
-#
-# install https://hub.github.com/
-#
-# use like this
-# pull-request (any hub args)
+
+# setup
+# install https://hub.github.com
+
+# usage
+# pull-request (hub args)
+
+# example
 # pull-request -l 'merge okay' -o
 
 # get current branch
