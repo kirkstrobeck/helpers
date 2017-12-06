@@ -6,13 +6,13 @@
 # example
 # branch fix-things
 
-git add --all &&
-git stash &&
 if git show-ref refs/heads/$1 --quiet; then
+  git add --all
+  git stash
   git checkout $1
+  git stash pop
 else
-  master &&
-  git checkout -b $1 &&
+  master
   deps-install
-fi &&
-git stash pop
+  git checkout -b $1
+fi

@@ -3,6 +3,9 @@
 # get current branch
 CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
-master &&
-git checkout $CURRENT_BRANCH &&
+git add --all
+git stash
+master-no-stash
+git checkout $CURRENT_BRANCH
 git rebase master
+git stash pop

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# get current branch
-CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
-
-rebase &&
-install-deps

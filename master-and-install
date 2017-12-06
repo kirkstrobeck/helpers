@@ -1,4 +1,0 @@
-#!/bin/bash
-
-master &&
-install-deps

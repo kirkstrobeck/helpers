@@ -6,5 +6,5 @@
 # example
 # issue-branch 123
 
-master-and-deps &&
+master-and-deps
 git checkout -b issue-$1
