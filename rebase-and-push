@@ -4,11 +4,14 @@
 CURRENT_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
 if [ $1 ]; then
-  git checkout $1
-  rebase
-  push-force
-  git checkout $CURRENT_BRANCH
+  git add --all &&
+  git stash &&
+  git checkout $1 &&
+  rebase-no-stash &&
+  push-force &&
+  git checkout $CURRENT_BRANCH &&
+  git stash pop
 else
-  rebase
+  rebase &&
   push-force
 fi

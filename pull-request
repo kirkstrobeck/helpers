@@ -24,5 +24,6 @@ function requote() {
 }
 CMD=$(requote "${@}")
 
-rebase-and-push
+rebase &&
+push-force &&
 eval hub pull-request ${CMD}

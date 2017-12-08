@@ -1,8 +1,5 @@
 #!/bin/bash
 
-git add --all
-git stash
-git checkout master
-git reset --hard origin/master
+git checkout master &&
+git reset --hard origin/master &&
 git pull
-git stash pop
