@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# usage
+# branch-from (string || branch)
+
+# example
+# branch-from fix-things
+
+git checkout -b $1

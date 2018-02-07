@@ -6,15 +6,21 @@
 # example
 # branch fix-things
 
+BRANCH_NAME=$1
+
+re='^[0-9]+$'
+if [[ $BRANCH_NAME =~ $re ]] ; then
+   BRANCH_NAME=issue-$BRANCH_NAME
+   echo "Branch can’t be a number. Changed to '$BRANCH_NAME'"
+fi
+
 git fetch --all &&
 git add --all &&
-git stash &&
-if [ $(git branch --all | grep $1) ]; then
-  git checkout $1 &&
+if [ "$(git branch --all | grep $BRANCH_NAME)" ]; then
+  git checkout $BRANCH_NAME &&
   deps-install
 else
   master &&
   deps-install &&
-  git checkout -b $1
-fi &&
-git stash pop
+  git checkout -b $BRANCH_NAME
+fi
